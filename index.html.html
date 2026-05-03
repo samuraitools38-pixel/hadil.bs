@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hadil Boussada — Lifestyle & Beauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blush: #F5E6E0;
+    --rose: #D4A5A0;
+    --deep-rose: #A06870;
+    --terracotta: #C27B6A;
+    --cream: #FAF6F2;
+    --sand: #E8DDD5;
+    --dark: #2A1F1D;
+    --mid: #7A5C57;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 3rem;
+    background: rgba(250, 246, 242, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,165,160,0.18);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--deep-rose);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--mid);
+    margin-top: 1.2rem;
+    margin-bottom: 2.8rem;
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 0.9rem 2.2rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--terracotta); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: var(--dark);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rose);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+
+  .btn-ghost:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-container {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--blush) 0%, var(--sand) 50%, #E5C9BE 100%);
+  }
+
+  /* Decorative abstract face / portrait placeholder */
+  .portrait-art {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-stat-bar {
+    position: absolute;
+    bottom: 1rem;
+    left: 6rem;
+    display: flex;
+    gap: 3rem;
+    z-index: 3;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 0.25rem; }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--dark);
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .hero-deco {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 340px;
+    height: 480px;
+    border: 1px solid rgba(160,104,112,0.2);
+    border-radius: 200px 200px 180px 180px;
+    background: linear-gradient(160deg, rgba(245,230,224,0.5) 0%, rgba(194,123,106,0.18) 100%);
+    z-index: 1;
+  }
+
+  .hero-deco-2 {
+    position: absolute;
+    top: 15%;
+    right: 18%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(212,165,160,0.3);
+    z-index: 1;
+  }
+
+  /* ABOUT */
+  .section { padding: 6rem 6rem; }
+
+  .about {
+    background: var(--blush);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 520px;
+  }
+
+  .about-card {
+    position: absolute;
+    background: var(--cream);
+    padding: 2.5rem;
+    width: 75%;
+    top: 2rem;
+    left: 0;
+    box-shadow: 0 8px 40px rgba(42,31,29,0.08);
+  }
+
+  .about-card-2 {
+    position: absolute;
+    background: var(--dark);
+    color: var(--cream);
+    padding: 1.8rem 2rem;
+    width: 60%;
+    bottom: 1rem;
+    right: 0;
+  }
+
+  .about-card-2 .card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-card-2 p {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--terracotta);
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+    color: var(--dark);
+  }
+
+  .section-title em { font-style: italic; color: var(--deep-rose); }
+
+  .section-body {
+    color: var(--mid);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .tag {
+    background: rgba(160,104,112,0.1);
+    color: var(--deep-rose);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(160,104,112,0.2);
+  }
+
+  /* CONTENT GRID */
+  .content-section {
+    background: var(--cream);
+    padding: 6rem;
+  }
+
+  .content-section .section-label,
+  .content-section .section-title {
+    text-align: center;
+  }
+
+  .content-section .section-label { justify-content: center; }
+
+  .section-title-center {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .content-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    group: true;
+  }
+
+  .content-card-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .content-card:hover .content-card-bg { transform: scale(1.04); }
+
+  .card-bg-1 { background: linear-gradient(145deg, #E8C5BD 0%, #C89080 60%, #A06870 100%); }
+  .card-bg-2 { background: linear-gradient(160deg, #D8C5B8 0%, #B8906E 55%, #8B6550 100%); }
+  .card-bg-3 { background: linear-gradient(145deg, #EDD5C8 0%, #D4A590 60%, #B07860 100%); }
+  .card-bg-4 { background: linear-gradient(150deg, #C8B8B0 0%, #A08878 55%, #7A6258 100%); }
+  .card-bg-5 { background: linear-gradient(145deg, #E5C8C0 0%, #CC9888 55%, #A07868 100%); }
+  .card-bg-6 { background: linear-gradient(160deg, #DAC0B0 0%, #B89080 55%, #8E6860 100%); }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(42,31,29,0.75) 0%, transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+  }
+
+  .card-cat {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #fff;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .card-deco {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* COLLAB */
+  .collab {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .collab .section-label { color: var(--rose); }
+  .collab .section-label::before { background: var(--rose); }
+  .collab .section-title { color: var(--cream); }
+  .collab .section-title em { color: var(--rose); }
+  .collab .section-body { color: rgba(250,246,242,0.6); }
+
+  .collab-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-field label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(250,246,242,0.45);
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--cream);
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: vertical;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    border-color: var(--rose);
+  }
+
+  .form-field select option { background: var(--dark); }
+
+  .collab-types {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .collab-tag {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid rgba(212,165,160,0.3);
+    color: var(--rose);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .collab-tag:hover, .collab-tag.active {
+    background: var(--rose);
+    color: var(--dark);
+    border-color: var(--rose);
+  }
+
+  .btn-send {
+    background: var(--rose);
+    color: var(--dark);
+    padding: 1rem 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .btn-send:hover { background: #E8BEB8; transform: translateY(-1px); }
+
+  /* SOCIAL STRIP */
+  .social-strip {
+    background: var(--blush);
+    padding: 4rem 6rem;
+    text-align: center;
+  }
+
+  .social-strip h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--dark);
+    transition: transform 0.25s, color 0.25s;
+  }
+
+  .social-link:hover { transform: translateY(-4px); color: var(--terracotta); }
+
+  .social-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid rgba(160,104,112,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .social-name {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* MARQUEE */
+  .marquee-wrap {
+    background: var(--terracotta);
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 18s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .marquee-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(250,246,242,0.5);
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(250,246,242,0.5);
+    padding: 2.5rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  /* SVG portrait */
+  .portrait-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag { animation: fadeUp 0.7s ease both; animation-delay: 0.1s; opacity: 0; }
+  .hero-name { animation: fadeUp 0.7s ease both; animation-delay: 0.25s; opacity: 0; }
+  .hero-sub { animation: fadeUp 0.7s ease both; animation-delay: 0.4s; opacity: 0; }
+  .hero-ctas { animation: fadeUp 0.7s ease both; animation-delay: 0.55s; opacity: 0; }
+  .hero-stat-bar { animation: fadeUp 0.7s ease both; animation-delay: 0.7s; opacity: 0; }
+  .hero-deco { animation: fadeUp 0.9s ease both; animation-delay: 0.15s; opacity: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 2rem 3rem; }
+    .hero-right { height: 340px; }
+    .hero-stat-bar { left: 2rem; bottom: 1.5rem; }
+    .section, .content-section { padding: 4rem 2rem; }
+    .about, .collab { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { height: 280px; }
+    .content-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .social-strip { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Hadil Boussada</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#collab">Collaborate</a></li>
+    <li><a href="#social">Follow</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Lifestyle · Beauty · Content Creator</div>
+    <h1 class="hero-name">
+      Hadil
+      <em>Boussada</em>
+    </h1>
+    <p class="hero-sub">Curating beauty rituals and everyday moments that inspire a more intentional life.</p>
+    <div class="hero-ctas">
+      <a href="#content" class="btn-primary">Explore Content</a>
+      <a href="#collab" class="btn-ghost">Work with me</a>
+    </div>
+  </div>
+  <img src="C:\Users\Mega-PC\Downloads\hadil boussada\WhatsApp Image 2026-05-03 at 1.43.24 AM.jpeg" 
+    height="600" width="500"
+     style="border-radius: 20px; border: 2px solid #C89080;">
+  
+  <div class="hero-stat-bar">
+    <div class="stat">
+      <span class="stat-num">240K+</span>
+      <span class="stat-label">Followers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">8.5%</span>
+      <span class="stat-label">Engagement</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">Years Creating</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item">Beauty Rituals <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Skincare Routines <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lifestyle Inspo <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fashion Looks <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Wellness Tips <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Travel Diaries <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Beauty Rituals <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Skincare Routines <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lifestyle Inspo <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Fashion Looks <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Wellness Tips <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Travel Diaries <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="about-visual">
+    <div class="about-card">
+      <div class="section-label" style="margin-bottom:0.8rem;">My philosophy</div>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; font-style:italic; color:#2A1F1D; line-height:1.5; margin-bottom:1rem;">"Beauty is a feeling you cultivate from within."</p>
+      <p style="font-size:0.85rem; color:#7A5C57; line-height:1.8;">I create content that feels honest, warm, and real — because that's what I want to see in the world.</p>
+    </div>
+    <div class="about-card-2">
+      <div class="card-label">Audience loves</div>
+      <p>Honest reviews, morning routines & skin-first beauty</p>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">About Hadil</div>
+    <h2 class="section-title">Beauty, life & <em>everything in between</em></h2>
+    <p class="section-body">
+      Hi, I'm Hadil — a lifestyle and beauty content creator passionate about authentic storytelling. I share everything from my skincare obsessions and minimalist beauty routines to travel adventures and cozy everyday moments.
+    </p>
+    <p class="section-body" style="margin-bottom:0;">
+      Based in Tunisia, I create content in Arabic, French, and English — connecting with a diverse, engaged community of women who value beauty with intention.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Skincare</span>
+      <span class="tag">Makeup</span>
+      <span class="tag">Fashion</span>
+      <span class="tag">Wellness</span>
+      <span class="tag">Travel</span>
+      <span class="tag">Lifestyle</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT SECTION -->
+<section class="content-section" id="content">
+  <div class="section-label" style="justify-content:center;">Featured content</div>
+  <h2 class="section-title" style="text-align:center; margin:0 auto 1rem; max-width:520px;">A glimpse into <em>my world</em></h2>
+  <div class="content-grid">
+    <div class="content-card">
+      <div class="content-card-bg card-bg-1"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Skincare</span>
+        <span class="card-title">My entire winter glow routine</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bg card-bg-2"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Fashion</span>
+        <span class="card-title">Minimal outfits for any season</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bg card-bg-3"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Beauty</span>
+        <span class="card-title">5-minute no-makeup makeup look</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bg card-bg-4"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Lifestyle</span>
+        <span class="card-title">Morning rituals I live by</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bg card-bg-5"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Wellness</span>
+        <span class="card-title">Reset routines for the weekend</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-bg card-bg-6"></div>
+      <div class="card-overlay">
+        <span class="card-cat">Travel</span>
+        <span class="card-title">Weekend in Sidi Bou Saïd</span>
+      </div>
+      <div class="card-deco">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAB -->
+<section class="collab" id="collab">
+  <div>
+    <div class="section-label">Let's work together</div>
+    <h2 class="section-title">Turn your brand into  <em>a story</em></h2>
+    <p class="section-body">I partner with brands that align with my values — authenticity, quality, and a genuine connection with my audience. Whether it's a product review, campaign, or long-term collaboration, let's create something meaningful.</p>
+    
+  </div>
+  <div>
+    <div class="collab-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Your name</label>
+          <input type="text" placeholder="Yasmine">
+        </div>
+        <div class="form-field">
+          <label>Brand / Company</label>
+          <input type="text" placeholder="Brand name">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email address</label>
+        <input type="email" placeholder="hello@yourbrand.com">
+      </div>
+      <div class="form-field">
+        <label>Collaboration type</label>
+        <select>
+          <option value="">Select a type</option>
+          <option>Sponsored Post</option>
+          <option>Reel / Short Video</option>
+          <option>Brand Ambassador</option>
+          <option>Event Appearance</option>
+          <option>Product Gifting</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Tell me about your campaign</label>
+        <textarea rows="4" placeholder="Share your idea, goals, and timeline..."></textarea>
+      </div>
+      <button class="btn-send">Send Proposal →</button>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="social-strip" id="social">
+  <h3>Find me on your favourite platform</h3>
+  <div class="social-links">
+    <a href="#" class="social-link">
+      <div class="social-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <span class="social-name">Instagram</span>
+    </a>
+    <a href="#" class="social-link">
+      <div class="social-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      </div>
+      <span class="social-name">YouTube</span>
+    </a>
+    <a href="#" class="social-link">
+      <div class="social-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.56V6.81a4.85 4.85 0 01-1.07-.12z"/></svg>
+      </div>
+      <span class="social-name">TikTok</span>
+    </a>
+    <a href="#" class="social-link">
+      <div class="social-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2z"/><line x1="9" y1="9" x2="9" y2="9"/><line x1="12" y1="9" x2="12" y2="9"/><line x1="15" y1="9" x2="15" y2="9"/></svg>
+      </div>
+      <span class="social-name">Snapchat</span>
+    </a>
+    <a href="#" class="social-link">
+      <div class="social-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <span class="social-name">Newsletter</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Hadil Boussada</span>
+  <span>© 2026 · powered by visionstudios. · Tunisia</span>
+  <span>hello@hadilboussada.com</span>
+</footer>
+
+<script>
+  // Collab tag toggle
+  document.querySelectorAll('.collab-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      document.querySelectorAll('.collab-tag').forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+    });
+  });
+
+  // Duplicate marquee for seamless loop
+  const track = document.getElementById('marquee');
+  track.innerHTML += track.innerHTML;
+</script>
+</body>
+</html>
